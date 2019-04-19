@@ -1,4 +1,4 @@
-// 1. (click) Change the background color on all 3 of the sign up buttons when clicked.
+// 1. (click)
 const btn = document.querySelectorAll(".btn");
 
 btn.forEach(element => {
@@ -7,7 +7,7 @@ btn.forEach(element => {
   });
 });
 
-// 2. (click) Make the Fun Bus h1 disappear.
+// 2. (click)
 const logoDisappear = document.querySelector("h1");
 
 logoDisappear.addEventListener("click", function(e) {
@@ -15,19 +15,64 @@ logoDisappear.addEventListener("click", function(e) {
 });
 
 // 3. (mouseover)
+const mouseOver = document.querySelector("h1");
 
-// 4. (keydown)
+mouseOver.addEventListener("mouseover", function(e) {
+  e.target.style.color = "red";
+});
 
-// 5. (wheel)
+// 4. (dblclick) - stopPropagation()
+const dblClick = document.querySelector(".welcome");
 
-// 6. (dblclick)
+dblClick.addEventListener("dblclick", function(e) {
+  e.stopPropagation();
+  e.target.style.fontSize = "6rem";
+});
 
-// 7. (drag/drop)
+// 5. (click)
+const go = document.querySelector(".go");
 
-// 8. (focus)
+go.addEventListener("click", function(e) {
+  e.target.style.backgroundColor = "yellow";
+});
+
+// 6. (keydown)
+const jContainer = document.querySelector("body");
+
+jContainer.addEventListener("keydown", function(e) {
+  if (e.key === "j") {
+    if (e.target.style.display !== "none") {
+      e.target.style.display = "none";
+    } else {
+      e.target.style.display = "block";
+    }
+  }
+});
+
+// 7. (drag)
+const headerIntro = document.querySelector("header.intro");
+
+headerIntro.addEventListener("drag", function(e) {
+  e.target.style.display = "none";
+});
+
+// 8. (load) - preventDefault()
+window.addEventListener("load", event => {
+  event.preventDefault();
+  console.log("Welcome to Fun Bus!");
+});
 
 // 9. (scroll)
+const scroll = document.querySelector(".content-section");
 
-// 10. (select)
+scroll.addEventListener("wheel", function(e) {
+  scroll.style.height = "600px";
+});
 
-// Use stopProgagation() and preventDefault()
+// 10. (copy)
+const funSunParagraph = document.querySelector(".destination p");
+
+funSunParagraph.addEventListener("copy", function(e) {
+  alert("Text Copied from Fun in the Sun");
+  e.stopPropagation();
+});
